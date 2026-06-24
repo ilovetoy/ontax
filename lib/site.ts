@@ -5,8 +5,13 @@ export const SITE = {
   name: "ONTAX",
   nameKo: "ONTAX 세무회계",
   tagline: "유튜버·크리에이터 전문 세무",
-  // 배포 도메인(가상/임시). 배포 후 NEXT_PUBLIC_SITE_URL 환경변수로 덮어쓰기.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://ontax.kr",
+  // 배포 URL 우선순위: 커스텀 도메인(NEXT_PUBLIC_SITE_URL) > Vercel 자동 도메인 > 임시 기본값.
+  // (|| 사용 — 빈 문자열도 폴백되도록. ??는 ""를 폴백 안 해 new URL("")로 빌드 깨짐)
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "https://ontax.kr"),
   // 가상 연락처 (사이트맵_IA §3)
   email: "hello@ontax.kr",
   tel: "02-000-0000",
