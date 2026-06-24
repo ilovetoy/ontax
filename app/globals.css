@@ -39,14 +39,15 @@
   --font-text: system-ui, -apple-system, "SF Pro Text", "Pretendard Variable", Pretendard,
     "Inter", sans-serif;
 
-  /* ---- Type scale (px / weight via utilities) ---- */
-  --text-hero: 56px;
+  /* ---- Type scale (px / weight via utilities) ----
+     큰 제목은 모바일 퍼스트(기술스택 §5)로 clamp() 유동화 — 데스크톱 px는 상한으로 유지(디자인 불변). */
+  --text-hero: clamp(30px, 7vw + 6px, 56px);
   --text-hero--line-height: 1.07;
   --text-hero--letter-spacing: -0.28px;
-  --text-display: 40px;
+  --text-display: clamp(26px, 5vw + 6px, 40px);
   --text-display--line-height: 1.1;
   --text-display--letter-spacing: 0px;
-  --text-lead: 28px;
+  --text-lead: clamp(19px, 2.5vw + 8px, 28px);
   --text-lead--line-height: 1.14;
   --text-lead--letter-spacing: 0.196px;
   --text-tagline: 21px;
