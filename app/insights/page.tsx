@@ -31,7 +31,7 @@ export default function InsightsPage() {
               <Link
                 key={post.slug}
                 href={`/insights/${post.slug}`}
-                className="group block rounded-lg border border-hairline bg-canvas p-5 transition-transform active:scale-[0.99]"
+                className="group block rounded-lg border border-hairline bg-canvas p-5 transition-all duration-200 hover:-translate-y-1 hover:border-action active:scale-[0.99]"
               >
                 {/* 더미 썸네일 (8주차 노션 CMS 이미지) */}
                 <div className="aspect-[16/9] rounded-sm bg-parchment" />

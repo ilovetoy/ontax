@@ -71,7 +71,7 @@ export default async function InsightDetailPage({
               <Link
                 key={p.slug}
                 href={`/insights/${p.slug}`}
-                className="group block rounded-lg border border-hairline bg-canvas p-5"
+                className="group block rounded-lg border border-hairline bg-canvas p-5 transition-all duration-200 hover:-translate-y-1 hover:border-action"
               >
                 <p className="text-caption font-semibold text-action">{p.tag}</p>
                 <h3 className="mt-2 text-body font-semibold leading-snug text-ink group-hover:text-action">

@@ -33,11 +33,11 @@
   --color-hairline: #e0e0e0;
   --color-divider: #f0f0f0;
 
-  /* ---- Fonts (SF Pro on Apple → Pretendard(KR) → Inter(Latin)) ---- */
-  --font-display: system-ui, -apple-system, "SF Pro Display", "Pretendard Variable",
-    Pretendard, "Inter", sans-serif;
-  --font-text: system-ui, -apple-system, "SF Pro Text", "Pretendard Variable", Pretendard,
-    "Inter", sans-serif;
+  /* ---- Fonts (Pretendard 우선 → SF Pro/시스템 → Inter(Latin)) ---- */
+  --font-display: "Pretendard Variable", Pretendard, system-ui, -apple-system,
+    "SF Pro Display", "Inter", sans-serif;
+  --font-text: "Pretendard Variable", Pretendard, system-ui, -apple-system,
+    "SF Pro Text", "Inter", sans-serif;
 
   /* ---- Type scale (px / weight via utilities) ----
      큰 제목은 모바일 퍼스트(기술스택 §5)로 clamp() 유동화 — 데스크톱 px는 상한으로 유지(디자인 불변). */
@@ -95,4 +95,21 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-action-focus);
   outline-offset: 2px;
+}
+
+/* Scroll-reveal (motion). 접근성: 움직임 비선호 시 즉시 표시·전환 없음. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }

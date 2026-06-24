@@ -32,7 +32,7 @@ export default function ServicesPage() {
             {SERVICES.map((s) => (
               <div
                 key={s.title}
-                className="rounded-lg border border-hairline bg-canvas p-6"
+                className="rounded-lg border border-hairline bg-canvas p-6 transition-all duration-200 hover:-translate-y-1 hover:border-action"
               >
                 <div className="text-3xl">{s.icon}</div>
                 <h3 className="mt-4 text-body font-semibold text-ink">{s.title}</h3>
