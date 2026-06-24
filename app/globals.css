@@ -1,5 +1,3 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
 @import "tailwindcss";
 
 /*
@@ -16,7 +14,7 @@
   /* ---- Colors: text ---- */
   --color-ink: #1d1d1f;
   --color-ink-80: #333333;
-  --color-ink-48: #7a7a7a;
+  --color-ink-48: #6e6e73; /* Apple secondary label — WCAG AA 대비 확보(#7a7a7a 대비 향상) */
   --color-body-muted: #cccccc;
   --color-on-dark: #ffffff;
 
@@ -33,11 +31,11 @@
   --color-hairline: #e0e0e0;
   --color-divider: #f0f0f0;
 
-  /* ---- Fonts (Pretendard 우선 → SF Pro/시스템 → Inter(Latin)) ---- */
-  --font-display: "Pretendard Variable", Pretendard, system-ui, -apple-system,
-    "SF Pro Display", "Inter", sans-serif;
-  --font-text: "Pretendard Variable", Pretendard, system-ui, -apple-system,
-    "SF Pro Text", "Inter", sans-serif;
+  /* ---- Fonts (next/font 자체호스팅 Pretendard → 시스템 폴백) ---- */
+  --font-display: var(--font-pretendard), system-ui, -apple-system,
+    "SF Pro Display", sans-serif;
+  --font-text: var(--font-pretendard), system-ui, -apple-system, "SF Pro Text",
+    sans-serif;
 
   /* ---- Type scale (px / weight via utilities) ----
      큰 제목은 모바일 퍼스트(기술스택 §5)로 clamp() 유동화 — 데스크톱 px는 상한으로 유지(디자인 불변). */

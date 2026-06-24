@@ -3,10 +3,25 @@ import Reveal from "@/components/ui/Reveal";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { FAQ } from "@/content/faq";
 
+// AEO/SEO: FAQ 구조화 데이터 (리치결과·AI 검색 노출).
+const FAQ_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+
 // 홈 S6 — FAQ 5문항 (light tile). 네이티브 <details>로 JS 없이 아코디언.
 export default function Faq() {
   return (
     <section className="bg-canvas py-section">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSONLD) }}
+      />
       <Container>
         <Reveal>
           <div className="mx-auto max-w-[760px]">
